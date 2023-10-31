@@ -12,7 +12,7 @@ renamed as (
     CONCAT(date_date, " ", orders_id, pdt_id) AS sales_id,
         date_date,
         orders_id,
-        pdt_id AS product_id,
+        pdt_id AS products_id,
         revenue,
         quantity
 
