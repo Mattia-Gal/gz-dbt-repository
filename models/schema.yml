@@ -1,4 +1,5 @@
 version: 2
+
 sources:
   - name: gz_raw_data
     tables:
@@ -15,7 +16,7 @@ sources:
           - name: pdt_id
           - name: revenue
           - name: quantity
-      - name: ship
+      - name: ship 
         identifier: raw_gz_ship
         columns:
           - name: orders_id
