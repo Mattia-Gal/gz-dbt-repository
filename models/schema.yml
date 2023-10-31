@@ -2,15 +2,29 @@ version: 2
 
 sources:
   - name: gz_raw_data
+    description: data set regrding greenweez
     tables:
       - name: product
         identifier: raw_gz_product
+        description: product data
         columns:
           - name: products_id
+
           - name: purchSE_PRICE
+
       - name: sales
         identifier: raw_gz_sales
+        freshness: 
+          warn_after:
+            count: 85
+            period: day
+          error_after:
+            count: 90
+            period: day
+        loaded_at_field: date_date
+        
         columns:
+          - name: sales_id
           - name: date_date
           - name: orders_id
           - name: pdt_id
@@ -24,6 +38,158 @@ sources:
           - name: shipping_fee_1
           - name: logCost
           - name: ship_cost
+
+models:
+  - name: stg_gz_raw_data__products
+    columns:
+      - name: products_id
+        tests:
+          - unique
+          - not_null
+      - name: purchase_price
+
+  - name: stg_gz_raw_data__sales
+    columns:
+          - name: sales_id
+            tests:
+            - unique
+            - not_null
+          - name: date_date
+          - name: orders_id
+          - name: pdt_id
+          - name: revenue
+          - name: quantity
+
+  - name: stg_gz_raw_data__ship
+    columns:
+      - name: orders_id
+        tests:
+          - unique
+          - not_null
+      - name: shipping_fee
+      - name: logcost
+      - name: ship_cost
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
